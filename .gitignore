@@ -24,3 +24,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+my-webapp-cdk/.venv
+my-webapp-cdk/build
+my-webapp-cdk/cdk.out
+node_modules
