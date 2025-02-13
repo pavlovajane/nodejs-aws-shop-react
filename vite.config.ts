@@ -16,6 +16,15 @@ export default defineConfig({
   build: {
     outDir: 'my-webapp-cdk/build',
     emptyOutDir: true,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+          return;
+        }
+        warn(warning);
+      },
+    },
   },
   test: {
     globals: true,
