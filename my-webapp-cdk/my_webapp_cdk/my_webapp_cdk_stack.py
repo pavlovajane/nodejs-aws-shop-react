@@ -1,3 +1,4 @@
+import time
 from aws_cdk import (
     Stack,
     aws_s3 as s3,
@@ -10,6 +11,23 @@ from aws_cdk import (
     CfnOutput
 )
 from constructs import Construct
+
+import boto3
+
+cloudfront_client = boto3.client('cloudfront')
+
+def invalidate_cache(distribution_id):
+    response = cloudfront_client.create_invalidation(
+        DistributionId=distribution_id,
+        InvalidationBatch={
+            'Paths': {
+                'Quantity': 1,
+                'Items': ['/*']  # Invalidates all files
+            },
+            'CallerReference': str(time.time())
+        }
+    )
+    return response
 
 class MyWebappCdkStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
