@@ -1,3 +1,15 @@
+# Jane's tasks
+## Manual deployment
+S3 bucket was created, the minor change (website title's was changed to JANE's shop) was done, website was build and uploaded to [S3 bucket](http://manual-bucket-for-aws-cloud-dev-course-jane.s3-website.us-east-2.amazonaws.com). S3 Bucket and is available over the Internet (see URL).
+
+A CloudFront distribution was created and configured. The Application is served with CloudFront and is available over the Internet via [CloudFront URL](https://d35xn51yrtqnd4.cloudfront.net/)
+
+## Automated deployment
+S3 Bucket was created, the Application was deployed, a CloudFront Distribution created and configured using AWS CDK. The Application can be built and deployed by running npm script commands. This Application has different title ("My Shop") to be distinguished from manually deployed website.
+
+[CloudFront URL](https://d2yv7dwt9ty4mt.cloudfront.net) is provided and opens a static website
+[S3 Bucket URL](https://mywebappcdkstack-websitebucket75c24d94-qippurmlughr.s3.us-east-2.amazonaws.com/) shows Access Denied error
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
