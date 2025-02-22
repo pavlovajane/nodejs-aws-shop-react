@@ -13,6 +13,10 @@ export default defineConfig({
     },
   },
   plugins: [react()],
+  build: {
+    outDir: 'my-webapp-cdk/build',
+    emptyOutDir: true,
+  },
   test: {
     globals: true,
     environment: "jsdom",
